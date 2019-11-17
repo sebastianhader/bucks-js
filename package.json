@@ -1,0 +1,19 @@
+{
+  "name": "bucks-js",
+  "version": "1.0.1",
+  "description": "Basic JS helper functions. Intital code bucks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastianhaede/bucks-js.git"
+  },
+  "author": "sebastian.haede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastianhaede/bucks-js/issues"
+  },
+  "homepage": "https://github.com/sebastianhaede/bucks-js#readme"
+}

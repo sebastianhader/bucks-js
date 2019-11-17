@@ -1,2 +1,2 @@
-# capital-js
+# bucks-js
  
