@@ -1,6 +1,6 @@
 {
   "name": "bucks-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Basic JS helper functions. Intital code bucks.",
   "main": "index.js",
   "scripts": {
