@@ -1,7 +1,7 @@
 {
   "name": "bucks-js",
-  "version": "1.0.2",
-  "description": "Basic JS helper functions. Intital code bucks.",
+  "version": "1.0.3",
+  "description": "Basic JS helper functions. Some bucks for your code.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
