@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+
+.env
+
+.idea/
+
+*.rdb
+dump.rdb
+yarn-error.log
