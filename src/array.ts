@@ -46,7 +46,7 @@
      */
     export const chunk = (array, length) => {
         // @ts-ignore
-        let list = require("./index").clone(array)
+        let list = require("./bucks-js").clone(array)
         let chunks = []
         while (list.length > 0) {
             let chunk = list.slice(0, length)
