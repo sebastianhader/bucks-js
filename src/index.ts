@@ -1,8 +1,8 @@
 
-    module.exports.int = require("./int")
-    module.exports.string = require("./string")
-    module.exports.object = require("./object")
-    module.exports.array = require("./array")
+    export import int = require('./int')
+    export import string = require('./string')
+    export import object = require('./object')
+    export import array = require('./array')
 
 
     /**
@@ -10,7 +10,7 @@
      * @param o
      * @return {*|{}}
      */
-    exports.clone = (o) => {
+    export const clone = (o) => {
         return JSON.parse(JSON.stringify(o))
     }
 
@@ -19,7 +19,7 @@
      * Checks if code is running on client or server side.
      * @return {*|{}}
      */
-    exports.isClient = () => {
+    export const isClient = () => {
         return !!(typeof window !== "undefined")
     }
 
@@ -32,7 +32,7 @@
      * @param lat2
      * @return {*}
      */
-    exports.distanceBetweenCoordinates = (lng1, lat1, lng2, lat2) => {
+    export const distanceBetweenCoordinates = (lng1, lat1, lng2, lat2) => {
         let R = 6371 // km (change this constant to get miles)
         let dLat = (lat2 - lat1) * Math.PI / 180
         let dLon = (lng2 - lng1) * Math.PI / 180
@@ -48,7 +48,7 @@
      * Builds url query parameter (uri encoded) for object and removes empty keys.
      * @param o
      */
-    exports.urlQueryParam = (o) => {
+    export const urlQueryParam = (o) => {
         let query = ''
 
         Object.keys(o).forEach((key) => {
@@ -78,7 +78,7 @@
      * @param immediate
      * @return {Function}
      */
-    exports.debounce = (func, wait, immediate) => {
+    export const debounce = (func, wait, immediate) => {
         let timeout
         return function() {
             let context = this, args = arguments
@@ -99,7 +99,7 @@
      * Element is here a dom tree element (document.getElementById)
      * @param element
      */
-    exports.toClipboardFromElement = (element) => {
+    export const toClipboardFromElement = (element) => {
         try {
             element.select()
             let successful = document.execCommand('copy')
@@ -114,16 +114,16 @@
      * Copies area value to the clipboard.
      * @param text
      */
-    exports.toClipboard = (text) => {
+    export const toClipboard = (text) => {
         if (typeof window === 'undefined') return false
 
         let textArea = document.createElement('textarea')
         textArea.style.position = 'fixed'
-        textArea.style.top = 0
-        textArea.style.left = 0
+        textArea.style.top = '0'
+        textArea.style.left = '0'
         textArea.style.width = '2em'
         textArea.style.height = '2em'
-        textArea.style.padding = 0
+        textArea.style.padding = '0'
         textArea.style.border = 'none'
         textArea.style.outline = 'none'
         textArea.style.boxShadow = 'none'

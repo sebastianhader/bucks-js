@@ -4,8 +4,8 @@
      * @param value
      * @returns {boolean}
      */
-    exports.is = (value) => {
-        return !isNaN(value) && parseInt(Number(value)) == value && !isNaN(parseInt(value, 10))
+    export const is = (value) => {
+        return !isNaN(value) && parseInt(String(Number(value))) == value && !isNaN(parseInt(value, 10))
     }
 
 
@@ -14,6 +14,6 @@
      * @param max
      * @return {number}
      */
-    exports.random = (max) => {
+    export const random = (max) => {
         return Math.floor(Math.random() * Math.floor(max))
     }

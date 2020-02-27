@@ -4,7 +4,7 @@
      * @param value
      * @return {boolean}
      */
-    exports.is = (value) => {
+    export const is = (value) => {
         return Array.isArray(value)
     }
 
@@ -15,7 +15,7 @@
      * @param value
      * @return {boolean}
      */
-    exports.includes = (array, value) => {
+    export const includes = (array, value) => {
         return !!(array.indexOf(value) > -1)
     }
 
@@ -27,7 +27,7 @@
      * @param depth
      * @return {*|{}}
      */
-    exports.flat = (array, depth = 1) => {
+    export const flat = (array, depth = 1) => {
         let newArray = []
         array.forEach((array) => {
             array.forEach((item) => {
@@ -44,8 +44,9 @@
      * @param length
      * @return {*|{}}
      */
-    exports.chunk = (array, length) => {
-        let list = require("./bucks-js").clone(array)
+    export const chunk = (array, length) => {
+        // @ts-ignore
+        let list = require("./index").clone(array)
         let chunks = []
         while (list.length > 0) {
             let chunk = list.slice(0, length)
@@ -61,7 +62,7 @@
      * @param array
      * @return {Array}
      */
-    exports.unique = (array) => {
+    export const unique = (array) => {
         return array.filter((value, index, self) => {
             return self.indexOf(value) === index
         })
@@ -75,7 +76,7 @@
      * @param predicate
      * @return {*}
      */
-    exports.findAndRemove = (array, predicate) => {
+    export const findAndRemove = (array, predicate) => {
         let index = array.findIndex(predicate)
         if (index > -1) {
             let item = array.find(predicate)
@@ -93,7 +94,7 @@
      * @param predicate
      * @return {*}
      */
-    exports.remove = (array, predicate) => {
+    export const remove = (array, predicate) => {
         let index = array.findIndex(predicate)
         if (index > -1) array.splice(index, 1)
     }

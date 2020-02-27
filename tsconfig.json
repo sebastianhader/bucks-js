@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6", // browser compatibility
+        "module": "commonjs", // compatibility
+        "declaration": true, // should be true when building package
+        "outDir": "./lib" // output directory
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "**/__tests__/*"
+    ]
+}

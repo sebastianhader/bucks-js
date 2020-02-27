@@ -4,7 +4,7 @@
      * @param value
      * @return {boolean}
      */
-    exports.is = (value) => {
+    export const is = (value) => {
         return !!(typeof value === 'object' && value !== null)
     }
 
@@ -14,7 +14,7 @@
      * @param args
      * @return {*|{}}
      */
-    exports.assign = (...args) => {
+    export const assign = (...args) => {
         return args.reduce(function (r, o) {
             Object.keys(o).forEach(function (k) {
                 r[k] = o[k]
@@ -29,7 +29,7 @@
      * @param o
      * @return {*|{}}
      */
-    exports.filter = (o) => {
+    export const filter = (o) => {
         let result = {}
         Object.keys(o).forEach(function (k) {
             if (o[k]) result[k] = o[k]
@@ -43,7 +43,7 @@
      * @param o
      * @return {*|{}}
      */
-    exports.empty = (o) => {
+    export const empty = (o) => {
         return !!(Object.keys(o).length === 0 && o.constructor === Object)
     }
 
@@ -55,7 +55,7 @@
      * @param defaultValue
      * @return mixed
      */
-    exports.get = (object, path, defaultValue) => {
+    export const get = (object, path, defaultValue) => {
         let result = undefined
         let keys = (path && path !== '') ? path.split('.') : []
         if (object !== null && keys.length > 0) {
