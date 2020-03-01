@@ -4,7 +4,7 @@
      * @param value
      * @returns {boolean}
      */
-    export const is = (value) => {
+    export const is = (value) : value is number => {
         return !isNaN(value) && parseInt(String(Number(value))) == value && !isNaN(parseInt(value, 10))
     }
 
