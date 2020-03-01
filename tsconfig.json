@@ -1,13 +1,12 @@
 {
     "compilerOptions": {
-        "target": "es6", // browser compatibility
+        "target": "es2019", // browser compatibility
         "module": "commonjs", // compatibility
+        "esModuleInterop": true, // new imports
+        //"noImplicitAny": true, // not is any as default
         "declaration": true, // should be true when building package
         "outDir": "./lib" // output directory
     },
-    "include": ["src"],
-    "exclude": [
-        "node_modules",
-        "**/__tests__/*"
-    ]
+    "include": ["src"],  // files to be included into compilation
+    "exclude": ["node_modules", "__tests__/*"] // excluded files
 }
