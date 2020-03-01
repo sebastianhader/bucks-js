@@ -4,7 +4,7 @@
      * @param value
      * @return {boolean}
      */
-    export const is = (value) : value is string => {
+    export const is = (value : any) : value is string => {
         return !!(typeof value === 'string' || value instanceof String)
     }
 

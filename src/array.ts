@@ -4,8 +4,18 @@
      * @param value
      * @return {boolean}
      */
-    export const is = (value) : value is [] => {
+    export const is = (value : any) : value is any[] => {
         return Array.isArray(value)
+    }
+
+
+    /**
+     * Checks if array is empty.
+     * @param array
+     * @return {boolean}
+     */
+    export const empty = (array : any[]) : boolean => {
+        return array.length === 0
     }
 
 
@@ -15,8 +25,8 @@
      * @param value
      * @return {boolean}
      */
-    export const includes = (array, value) => {
-        return !!(array.indexOf(value) > -1)
+    export const includes = (array : any[], value : never) : boolean => {
+        return array.indexOf(value) > -1
     }
 
 
@@ -27,8 +37,8 @@
      * @param depth
      * @return {*|{}}
      */
-    export const flat = (array, depth = 1) => {
-        let newArray = []
+    export const flat = (array : any[], depth : number = 1) : any[] => {
+        let newArray : any[] = []
         array.forEach((array) => {
             array.forEach((item) => {
                 newArray.push(item)
@@ -76,7 +86,7 @@
      * @param predicate
      * @return {*}
      */
-    export const findAndRemove = (array, predicate) => {
+    export const findAndRemove = (array : any[], predicate : never) : never|undefined => {
         let index = array.findIndex(predicate)
         if (index > -1) {
             let item = array.find(predicate)
@@ -94,7 +104,7 @@
      * @param predicate
      * @return {*}
      */
-    export const remove = (array, predicate) => {
+    export const remove = (array : any[], predicate : never) : void => {
         let index = array.findIndex(predicate)
         if (index > -1) array.splice(index, 1)
     }
