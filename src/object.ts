@@ -55,7 +55,7 @@
      * @param defaultValue
      * @return mixed
      */
-    export const get = (object : any, path : string, defaultValue : any) => {
+    export const get = (object : any, path : string, defaultValue : any = undefined) => {
         let result = undefined
         let keys = (path && path !== '') ? path.split('.') : []
         if (object !== null && keys.length > 0) {
