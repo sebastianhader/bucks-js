@@ -100,11 +100,10 @@
      * @param array
      * @param caseSensitive
      */
-    export const contains = (string : string, array : string[], caseSensitive = true) : boolean => {
+    export const contains = (string : string, array : string[], caseSensitive : boolean = true) : boolean => {
         let elementFound : boolean = false
         array.forEach((element: string) => {
-            // @ts-ignore
-            if (this.indexOf(string, element, caseSensitive) > -1) elementFound = true
+            if (indexOf(string, element, 0, caseSensitive) > -1) elementFound = true
         })
         return elementFound
     }
@@ -119,7 +118,7 @@
      * @param caseSensitive
      * @return {number}
      */
-    export const indexOf = (string : string, search : string, start : number = 0, caseSensitive = true) => {
+    export const indexOf = (string : string, search : string, start : number = 0, caseSensitive : boolean = true) => {
         if (caseSensitive === false) {
             string = string.toLowerCase()
             search = search.toLowerCase()

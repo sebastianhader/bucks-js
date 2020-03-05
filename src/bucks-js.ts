@@ -48,20 +48,19 @@
      * Builds url query parameter (uri encoded) for object and removes empty keys.
      * @param o
      */
-    export const urlQueryParam = (o : object) : string => {
+    export const urlQueryParam = (o : {[key:string]:any}) : string => {
+        // @ts-ignore
+        let arrayBucksJs = require("./array")
         let query = ''
 
         Object.keys(o).forEach((key : string) => {
-            // @ts-ignore
-            if (Array.isArray(o[key])) {
+            if (arrayBucksJs.is(o[key])) {
                 // if value is an array
-                // @ts-ignore
-                o[key].forEach((arrayValue) => {
+                o[key].forEach((arrayValue : any) => {
                     if (arrayValue) query += '&' + key + '[]=' + encodeURIComponent(arrayValue)
                 })
             } else {
                 // if value not an array
-                // @ts-ignore
                 if (o[key]) query += '&' + key + '=' + encodeURIComponent(o[key])
             }
         })
@@ -135,8 +134,7 @@
         textArea.value = text // set Value
 
         document.body.appendChild(textArea)
-        // @ts-ignore
-        let success = this.toClipboardFromElement(textArea)
+        let success = toClipboardFromElement(textArea)
         document.body.removeChild(textArea)
         return success
     }
