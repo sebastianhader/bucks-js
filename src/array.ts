@@ -40,7 +40,7 @@
     export const flat = (array : any[], depth : number = 1) : any[] => {
         let newArray : any[] = []
         array.forEach((array) => {
-            array.forEach((item) => {
+            array.forEach((item : any) => {
                 newArray.push(item)
             })
         })
@@ -54,7 +54,7 @@
      * @param length
      * @return {*|{}}
      */
-    export const chunk = (array, length) => {
+    export const chunk = (array : any[], length : number) => {
         // @ts-ignore
         let list = require("./bucks-js").clone(array)
         let chunks = []
@@ -72,7 +72,7 @@
      * @param array
      * @return {Array}
      */
-    export const unique = (array) => {
+    export const unique = (array : any[]) => {
         return array.filter((value, index, self) => {
             return self.indexOf(value) === index
         })

@@ -14,8 +14,8 @@
      * @param args
      * @return {*|{}}
      */
-    export const assign = (...args) => {
-        return args.reduce(function (r, o) {
+    export const assign = (...args : any) => {
+        return args.reduce(function (r : any, o : any) {
             Object.keys(o).forEach(function (k) {
                 r[k] = o[k]
             })
@@ -29,8 +29,8 @@
      * @param o
      * @return {*|{}}
      */
-    export const filter = (o) => {
-        let result = {}
+    export const filter = (o : any) => {
+        let result : any = {}
         Object.keys(o).forEach(function (k) {
             if (o[k]) result[k] = o[k]
         })
@@ -43,7 +43,7 @@
      * @param o
      * @return {*|{}}
      */
-    export const empty = (o) => {
+    export const empty = (o : object) => {
         return !!(Object.keys(o).length === 0 && o.constructor === Object)
     }
 
@@ -55,7 +55,7 @@
      * @param defaultValue
      * @return mixed
      */
-    export const get = (object, path, defaultValue) => {
+    export const get = (object : any, path : string, defaultValue : any) => {
         let result = undefined
         let keys = (path && path !== '') ? path.split('.') : []
         if (object !== null && keys.length > 0) {
