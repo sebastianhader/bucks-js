@@ -10,7 +10,7 @@
      * @param o
      * @return {*|{}}
      */
-    export const clone = (o : any) => {
+    export const clone = (o: any) => {
         return JSON.parse(JSON.stringify(o))
     }
 
@@ -32,7 +32,7 @@
      * @param lat2
      * @return {*}
      */
-    export const distanceBetweenCoordinates = (lng1 : number, lat1 : number, lng2 : number, lat2 : number) => {
+    export const distanceBetweenCoordinates = (lng1: number, lat1: number, lng2: number, lat2: number) => {
         let R = 6371 // km (change this constant to get miles)
         let dLat = (lat2 - lat1) * Math.PI / 180
         let dLon = (lng2 - lng1) * Math.PI / 180
@@ -48,15 +48,15 @@
      * Builds url query parameter (uri encoded) for object and removes empty keys.
      * @param o
      */
-    export const urlQueryParam = (o : {[key:string]:any}) : string => {
+    export const urlQueryParam = (o: {[key:string]:any}) : string => {
         // @ts-ignore
         let arrayBucksJs = require("./array")
         let query = ''
 
-        Object.keys(o).forEach((key : string) => {
+        Object.keys(o).forEach((key: string) => {
             if (arrayBucksJs.is(o[key])) {
                 // if value is an array
-                o[key].forEach((arrayValue : any) => {
+                o[key].forEach((arrayValue: any) => {
                     if (arrayValue) query += '&' + key + '[]=' + encodeURIComponent(arrayValue)
                 })
             } else {
@@ -80,8 +80,8 @@
      * @param immediate
      * @return {Function}
      */
-    export const debounce = (func : any, wait : number, immediate : any) => {
-        let timeout : any
+    export const debounce = (func: any, wait: number, immediate: any) => {
+        let timeout: any
         return function () {
             let context = this, args = arguments
             let later = function () {
@@ -101,7 +101,7 @@
      * Element is here a dom tree element (document.getElementById)
      * @param element
      */
-    export const toClipboardFromElement = (element : any) => {
+    export const toClipboardFromElement = (element: any) => {
         try {
             element.select()
             let successful = document.execCommand('copy')
@@ -116,7 +116,7 @@
      * Copies area value to the clipboard.
      * @param text
      */
-    export const toClipboard = (text : string) => {
+    export const toClipboard = (text: string) => {
         if (typeof window === 'undefined') return false
 
         let textArea = document.createElement('textarea')

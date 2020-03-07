@@ -4,7 +4,7 @@
      * @param value
      * @return {boolean}
      */
-    export const is = (value : any) : value is any[] => {
+    export const is = (value: any): value is any[] => {
         return Array.isArray(value)
     }
 
@@ -14,7 +14,7 @@
      * @param array
      * @return {boolean}
      */
-    export const empty = (array : any[]) : boolean => {
+    export const empty = (array: any[]) : boolean => {
         return array.length === 0
     }
 
@@ -25,7 +25,7 @@
      * @param value
      * @return {boolean}
      */
-    export const includes = (array : any[], value : never) : boolean => {
+    export const includes = (array: any[], value: never) : boolean => {
         return array.indexOf(value) > -1
     }
 
@@ -37,8 +37,8 @@
      * @param depth
      * @return {*|{}}
      */
-    export const flat = (array : any[], depth : number = 1) : any[] => {
-        let newArray : any[] = []
+    export const flat = (array: any[], depth: number = 1) : any[] => {
+        let newArray: any[] = []
         array.forEach((array) => {
             array.forEach((item : any) => {
                 newArray.push(item)
@@ -54,7 +54,7 @@
      * @param length
      * @return {*|{}}
      */
-    export const chunk = (array : any[], length : number) => {
+    export const chunk = (array: any[], length: number): any[] => {
         // @ts-ignore
         let list = require("./bucks-js").clone(array)
         let chunks = []
@@ -72,7 +72,7 @@
      * @param array
      * @return {Array}
      */
-    export const unique = (array : any[]) => {
+    export const unique = (array: any[]): any[] => {
         return array.filter((value, index, self) => {
             return self.indexOf(value) === index
         })
@@ -86,7 +86,7 @@
      * @param predicate
      * @return {*}
      */
-    export const findAndRemove = (array : any[], predicate : never) : never|undefined => {
+    export const findAndRemove = (array: any[], predicate: never): never|undefined => {
         let index = array.findIndex(predicate)
         if (index > -1) {
             let item = array.find(predicate)
@@ -104,7 +104,7 @@
      * @param predicate
      * @return {*}
      */
-    export const remove = (array : any[], predicate : never) : void => {
+    export const remove = (array: any[], predicate: any): void => {
         let index = array.findIndex(predicate)
         if (index > -1) array.splice(index, 1)
     }
