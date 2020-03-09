@@ -80,7 +80,7 @@
      * @param immediate
      * @return {Function}
      */
-    export const debounce = (func: any, wait: number, immediate: any) => {
+    export const debounce = (func: any, wait: number, immediate?: any) => {
         let timeout: any
         return function () {
             let context = this, args = arguments
