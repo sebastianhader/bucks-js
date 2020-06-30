@@ -32,6 +32,17 @@
 
 
     /**
+     * Checks if value is valid phone.
+     * @param value
+     * @return {boolean}
+     */
+    export const isPhone = (value: string) => {
+        let expression = /^(?:([+][0-9]{1,2})+[ .-]*)?([(]{1}[0-9]{1,6}[)])?([0-9 .-/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/
+        return expression.test(String(value).toLowerCase())
+    }
+
+
+    /**
      * Generates a random string.
      * @param length
      * @returns string.ts
