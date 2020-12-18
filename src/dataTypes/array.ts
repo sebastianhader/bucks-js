@@ -55,8 +55,7 @@
      * @return {*|{}}
      */
     export const chunk = (array: any[], length: number): any[] => {
-        // @ts-ignore
-        let list = require("./bucks-js").clone(array)
+        let list = JSON.parse(JSON.stringify(array))
         let chunks = []
         while (list.length > 0) {
             let chunk = list.slice(0, length)

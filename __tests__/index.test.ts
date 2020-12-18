@@ -1,5 +1,5 @@
 import $ from '../src/index'
 
-test('Bucks JS: Clone Test', () => {
+test('Bucks JS: Is Array?', () => {
     expect($.array.is([])).toBe(true);
 })
