@@ -1,10 +1,11 @@
-
-    /**
+/**
      * Checks if value is object.
      * @param value
      * @return {boolean}
      */
-    export const is = (value: any): value is object => {
+import {array} from "../bucks-js";
+
+export const is = (value: any): value is object => {
         return !!(typeof value === 'object' && value !== null)
     }
 
@@ -65,4 +66,26 @@
             }
         }
         return result === undefined ? defaultValue : result
+    }
+
+
+    /**
+     * Sets value for paths on objects. Path example {key}.{key}.
+     * @param object
+     * @param path
+     * @param value
+     */
+    export const set = (object: any, path: string, value: any) => {
+        let keys = (path && path !== '') ? path.split('.') : []
+        let temp = object
+        keys.forEach(function (key, index) {
+            if (keys.length === index + 1) {
+                temp[key] = value
+            } else {
+                if (!temp[key]) {
+                    temp[key] = {}
+                }
+                temp = temp[key]
+            }
+        })
     }
