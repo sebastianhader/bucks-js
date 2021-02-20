@@ -1,27 +1,27 @@
 {
-  "name": "bucks-js",
-  "version": "1.5.7",
-  "description": "Basic JS helper functions. Some bucks for your code.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "test": "jest --config jestconfig.json",
-    "build": "rm -rf ./lib && tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebastianhaede/bucks-js.git"
-  },
-  "author": "sebastian.haede",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sebastianhaede/bucks-js/issues"
-  },
-  "homepage": "https://github.com/sebastianhaede/bucks-js#readme",
-  "devDependencies": {
-    "@types/jest": "^25.1.3",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.2"
-  }
+    "name": "bucks-js",
+    "version": "1.5.8",
+    "description": "Basic JS helper functions. Some bucks for your code.",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "test": "jest --config jestconfig.json",
+        "build": "rm -rf ./lib && tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sebastianhaede/bucks-js.git"
+    },
+    "author": "sebastian.haede",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sebastianhaede/bucks-js/issues"
+    },
+    "homepage": "https://github.com/sebastianhaede/bucks-js#readme",
+    "devDependencies": {
+        "@types/jest": "^25.1.3",
+        "jest": "^25.1.0",
+        "ts-jest": "^25.2.1",
+        "typescript": "^3.8.2"
+    }
 }

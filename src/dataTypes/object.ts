@@ -1,11 +1,12 @@
-/**
-     * Checks if value is object.
-     * @param value
-     * @return {boolean}
-     */
-import {array} from "../bucks-js";
+    import stringType = require('./string')
+    import objectType = require('./object')
 
-export const is = (value: any): value is object => {
+    /**
+    * Checks if value is object.
+    * @param value
+    * @return {boolean}
+    */
+    export const is = (value: any): value is object => {
         return !!(typeof value === 'object' && value !== null)
     }
 
@@ -50,7 +51,28 @@ export const is = (value: any): value is object => {
 
 
     /**
-     * Gets key paths from objects. Path example {key}.{key}.
+     * Splits string into path keys.
+     * @param string
+     */
+    export const toPathKeys = (string: string): any[] => {
+        if (stringType.is(string)) {
+            let keys: any[] = []
+            string.split('.').forEach((item: string) => {
+                item.split(/\[([^}]+)\]/g).forEach((key) => {
+                    if (key.length > 0) {
+                        keys.push(key)
+                    }
+                })
+            })
+            return keys
+        } else {
+            return []
+        }
+    }
+
+
+    /**
+     * Gets key paths from objects. Path example {key}.{key}[number].
      * @param object
      * @param path
      * @param defaultValue
@@ -58,7 +80,7 @@ export const is = (value: any): value is object => {
      */
     export const get = (object: any, path: string, defaultValue?: any) => {
         let result = undefined
-        let keys = (path && path !== '') ? path.split('.') : []
+        let keys = objectType.toPathKeys(path)
         if (object !== null && keys.length > 0) {
             result = object
             for (let key of keys) {
@@ -76,7 +98,7 @@ export const is = (value: any): value is object => {
      * @param value
      */
     export const set = (object: any, path: string, value: any) => {
-        let keys = (path && path !== '') ? path.split('.') : []
+        let keys = objectType.toPathKeys(path)
         let temp = object
         keys.forEach(function (key, index) {
             if (keys.length === index + 1) {
