@@ -55,13 +55,3 @@ test('Object.get() -> medium', () => {
     const result = $.object.get(TEST_OBJECT, 'sections[0]')
     expect(result).toBe(TEST_OBJECT.sections[0])
 })
-
-test('Object.set() -> medium', () => {
-    let object = {
-        title: {
-            tests: ['test4', null, 'tet4']
-        }
-    }
-    let resultObject = { title: { test: [ { title: 'hans' } ] } }
-    $.object.set(object, 'title.tests[1].hans[5]', { ggg: 'yo' })
-})
