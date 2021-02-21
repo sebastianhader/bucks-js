@@ -30,9 +30,16 @@ const TEST_OBJECT = {
 }
 
 
+test('String.isNumeric()', () => {
+    expect($.string.isNumeric('a47')).toBe(false)
+    expect($.string.isNumeric('47')).toBe(true)
+})
+
+
 test('Array.is()', () => {
     expect($.array.is([])).toBe(true)
 })
+
 
 test('Object.toPathKeys() -> easy', () => {
     const result = $.object.toPathKeys('sections.test[0]')
@@ -50,8 +57,11 @@ test('Object.get() -> medium', () => {
 })
 
 test('Object.set() -> medium', () => {
-    let object = { title: {} }
-    let resultObject = { title: { test: { title: 'hans' } } }
-    $.object.set(object, 'title.test.title', 'hans')
-    expect(object).toStrictEqual(resultObject)
+    let object = {
+        title: {
+            tests: ['test4', null, 'tet4']
+        }
+    }
+    let resultObject = { title: { test: [ { title: 'hans' } ] } }
+    $.object.set(object, 'title.tests[1].hans[5]', { ggg: 'yo' })
 })

@@ -20,6 +20,17 @@
 
 
     /**
+     * Checks if array index exists.
+     * @param array
+     * @param index
+     * @return {boolean}
+     */
+    export const indexExists = (array: any[], index: number) : boolean => {
+        return !(typeof array[index] === 'undefined')
+    }
+
+
+    /**
      * Checks if array contains value.
      * @param array
      * @param value

@@ -1,5 +1,6 @@
     import stringType = require('./string')
     import objectType = require('./object')
+    import arrayType = require('./array')
 
     /**
     * Checks if value is object.
@@ -100,14 +101,49 @@
     export const set = (object: any, path: string, value: any) => {
         let keys = objectType.toPathKeys(path)
         let temp = object
+
         keys.forEach(function (key, index) {
-            if (keys.length === index + 1) {
-                temp[key] = value
-            } else {
-                if (!temp[key]) {
-                    temp[key] = {}
+            const isArrayIndex = stringType.isNumeric(key)
+            let intIndex = parseInt(key)
+
+            if (index + 1 === keys.length) {
+
+                // FINAL ROUND
+                if (isArrayIndex) {
+                    if (!arrayType.indexExists(temp, intIndex)) {
+                        temp.push(value)
+                    } else {
+                        temp[intIndex] = value
+                    }
+                } else {
+                    temp[key] = value
                 }
-                temp = temp[key]
+
+            } else {
+
+                // GO / CREATE NEXT LAYER
+                if (!isArrayIndex) {
+                    const isNextArrayIndex = stringType.isNumeric(keys[index + 1])
+                    if (isNextArrayIndex) {
+                        if (!temp[key]) { temp[key] = [] }
+                        temp = temp[key]
+                    } else {
+                        if (!temp[key]) { temp[key] = {} }
+                        temp = temp[key]
+                    }
+                } else {
+                    if (!arrayType.indexExists(temp, intIndex)) {
+                        temp.push({})
+                        intIndex = temp.length - 1 // set int index to last position
+                    }
+                    if (!temp[intIndex]) {
+                        temp[intIndex] = {}
+                    }
+                    temp = temp[intIndex]
+                }
+
             }
         })
+
+        return object
     }

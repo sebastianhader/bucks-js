@@ -10,6 +10,17 @@
 
 
     /**
+     * Checks if value is numeric.
+     * @param value
+     * @return {boolean}
+     */
+    export const isNumeric = (value: string): boolean => {
+        // @ts-ignore
+        return !isNaN(value) && !isNaN(parseFloat(value))
+    }
+
+
+    /**
      * Checks if value is valid mail.
      * @param value
      * @return {boolean}
