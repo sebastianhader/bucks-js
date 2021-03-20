@@ -70,3 +70,12 @@
             if (callNow) func.apply(context, args)
         }
     }
+
+
+    /**
+     * Waits at the current position in the script.
+     * @param time
+     */
+    export const sleep = (time: number) => {
+        return new Promise(resolve => setTimeout(resolve, time))
+    }
