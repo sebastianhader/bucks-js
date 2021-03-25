@@ -25,7 +25,7 @@
      * @param value
      * @return {boolean}
      */
-    export const isMail = (value: string) => {
+    export const isMail = (value: string): boolean => {
         let expression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         return expression.test(String(value).toLowerCase())
     }
@@ -36,7 +36,7 @@
      * @param value
      * @return {boolean}
      */
-    export const isUrl = (value: string) => {
+    export const isUrl = (value: string): boolean => {
         let expression = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/
         return expression.test(String(value).toLowerCase())
     }
@@ -47,7 +47,7 @@
      * @param value
      * @return {boolean}
      */
-    export const isPhone = (value: string) => {
+    export const isPhone = (value: string): boolean => {
         let expression = /^(?:([+][0-9]{1,2})+[ .-]*)?([(]{1}[0-9]{1,6}[)])?([0-9 .-/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/
         return expression.test(String(value).toLowerCase())
     }
@@ -56,9 +56,9 @@
     /**
      * Generates a random string.
      * @param length
-     * @returns string.ts
+     * @returns string
      */
-    export const random = (length: number = 10) => {
+    export const random = (length: number = 10): string => {
         let text = ''
         let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
         for (let i = 0; i < length; i++) {
@@ -72,9 +72,9 @@
      * Converts a camel case string to a string with spaces
      * and uppercase starting letters.
      * @param word
-     * @returns string.ts
+     * @returns string
      */
-    export const camelCaseToSpaceCase = (word: string) => {
+    export const camelCaseToSpaceCase = (word: string): string => {
         return word.replace(/([A-Z])/g, ' $1')
             .replace(/^./, function(str) {
                 return str.toUpperCase()
@@ -85,9 +85,9 @@
     /**
      * Converts a camel case string to a string with dashes.
      * @param word
-     * @returns string.ts
+     * @returns string
      */
-    export const camelCaseToDashCase = (word: string) => {
+    export const camelCaseToDashCase = (word: string): string => {
         let newWord = word.replace(/^\w/, c => c.toLowerCase())
         return newWord.replace(/[A-Z]/g, m => "-" + m.toLowerCase())
     }
@@ -97,9 +97,9 @@
      * Converts a camel case string to a string with dashes.
      * @param word
      * @param upper
-     * @returns string.ts
+     * @returns string
      */
-    export const spaceCaseToCamelCase = (word: string, upper : boolean = false) => {
+    export const spaceCaseToCamelCase = (word: string, upper : boolean = false): string => {
         let newWord = word.replace(/\-[a-zA-Z]/g, m => m.slice(1).toUpperCase())
         return upper ? newWord.replace(/^\w/, c => c.toUpperCase()) : newWord
     }
@@ -108,9 +108,9 @@
     /**
      * Converts a string to a capitalized string.
      * @param string
-     * @returns string.ts
+     * @returns string
      */
-    export const capitalize = (string: string) => {
+    export const capitalize = (string: string): string => {
         return string.charAt(0).toUpperCase() + string.slice(1)
     }
 
@@ -146,4 +146,14 @@
             search = search.toLowerCase()
         }
         return string.indexOf(search, start)
+    }
+
+
+    /**
+     * Removes all spaces from a string.
+     * @param string
+     * @returns string
+     */
+    export const removeSpaces = (string: string): string => {
+        return string.replace(/\s/g, '')
     }
