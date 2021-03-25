@@ -48,7 +48,7 @@
      * @return {boolean}
      */
     export const isPhone = (value: string): boolean => {
-        let expression = /^(?:([+][0-9]{1,2})+[ .-]*)?([(]{1}[0-9]{1,6}[)])?([0-9 .-/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/
+        let expression = /^(\(?\+\d+\)?[\s.-]?)?\(?\d+\)?[\s.-]?\d+[\s.-]?\d+$/
         return expression.test(String(value).toLowerCase())
     }
 
