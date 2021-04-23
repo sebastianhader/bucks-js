@@ -100,7 +100,7 @@
      * @returns string
      */
     export const spaceCaseToCamelCase = (word: string, upper : boolean = false): string => {
-        let newWord = word.replace(/\-[a-zA-Z]/g, m => m.slice(1).toUpperCase())
+        let newWord = word.toLowerCase().replace(/\-[a-zA-Z]/g, m => m.slice(1).toUpperCase())
         return upper ? newWord.replace(/^\w/, c => c.toUpperCase()) : newWord
     }
 
