@@ -1,6 +1,5 @@
     import stringType = require('./string')
     import objectType = require('./object')
-    import arrayType = require('./array')
 
     /**
     * Checks if value is object.

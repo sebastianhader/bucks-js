@@ -1,6 +1,6 @@
 {
     "name": "bucks-js",
-    "version": "1.6.8",
+    "version": "1.6.9",
     "description": "Basic JS helper functions. Some bucks for your code.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
