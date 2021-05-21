@@ -79,13 +79,10 @@
      * @return mixed
      */
     export const get = (object: any, path: string, defaultValue?: any) => {
-        let result = undefined
+        let result = object
         let keys = objectType.toPathKeys(path)
-        if (object !== null && keys.length > 0) {
-            result = object
-            for (let key of keys) {
-                result = (result && result[key] !== undefined && result[key] !== null) ? result[key] : undefined
-            }
+        for (let key of keys) {
+            result = (result && result[key] !== undefined && result[key] !== null) ? result[key] : undefined
         }
         return result === undefined ? defaultValue : result
     }
