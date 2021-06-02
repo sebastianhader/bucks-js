@@ -25,7 +25,6 @@
      * @param o
      */
     export const urlQueryParam = (o: {[key:string]:any}) : string => {
-        // @ts-ignore
         let arrayBucksJs = require("./dataTypes/array")
         let query = ''
 
@@ -41,11 +40,12 @@
             }
         })
 
-        // remove first "&" sign
-        if (query.length > 0) query = query.substr(1)
-
-        // add question mark at the beginning
-        return '?' + query
+        if (query.length > 0) {
+            query = query.substr(1) // remove first "&" sign
+            return '?' + query // add question mark at the beginning
+        } else {
+            return ''
+        }
     }
 
 
