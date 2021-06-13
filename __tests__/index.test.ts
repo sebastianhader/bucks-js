@@ -30,17 +30,12 @@ const TEST_OBJECT = {
 }
 
 
-test('String.isNumeric()', () => {
-    expect($.string.isNumeric('a47')).toBe(false)
-    expect($.string.isNumeric('47')).toBe(true)
-})
-
-
 test('Array.is()', () => {
     expect($.array.is([])).toBe(true)
 })
 
 
+// OBJECT
 test('Object.toPathKeys() -> easy', () => {
     const result = $.object.toPathKeys('sections.test[0]')
     expect(result).toStrictEqual(['sections', 'test', '0'])
@@ -54,4 +49,16 @@ test('Object.get() -> easy', () => {
 test('Object.get() -> medium', () => {
     const result = $.object.get(TEST_OBJECT, 'sections[0]')
     expect(result).toBe(TEST_OBJECT.sections[0])
+})
+
+
+// STRING
+test('string.isNumeric()', () => {
+    expect($.string.isNumeric('a47')).toBe(false)
+    expect($.string.isNumeric('47')).toBe(true)
+})
+
+test('string.camelize()', () => {
+    expect($.string.camelize('Created At')).toBe('createdAt')
+    expect($.string.camelize('Created   At')).toBe('createdAt')
 })
