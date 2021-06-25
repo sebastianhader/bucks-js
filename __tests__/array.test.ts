@@ -6,7 +6,11 @@ const TEST_ARRAY: any = [
     { firstName: 'Lisa', lastName: 'Hansen' },
     { firstName: 'Max', lastName: 'Meier' },
     { firstName: 'Josef', lastName: 'Gunter' },
+    { firstName: 'Jana', lastName: 'Laurenz' },
+    { firstName: 'Ursula', lastName: 'Green' },
+    { firstName: 'Katharina', lastName: 'Miller' },
 ]
+
 
 test('$.array.is()', () => {
     expect($.array.is([])).toBe(true)
