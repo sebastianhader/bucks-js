@@ -1,6 +1,7 @@
     import stringType = require('./string')
     import objectType = require('./object')
 
+
     /**
     * Checks if value is object.
     * @param value

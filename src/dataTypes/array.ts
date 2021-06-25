@@ -1,3 +1,5 @@
+    import arrayType = require('./array')
+
 
     /**
      * Checks if value is array.
@@ -86,6 +88,22 @@
         return array.filter((value, index, self) => {
             return self.indexOf(value) === index
         })
+    }
+
+
+    /**
+     * Finds first item in for defined predicate condition.
+     * @param array
+     * @param predicate
+     * @return {*}
+     */
+    export const find = (array: any[], predicate: never): never|undefined => {
+        let result = array.filter(predicate)
+        if (arrayType.empty(result) === false) {
+            return result[0]
+        } else {
+            return undefined
+        }
     }
 
 
