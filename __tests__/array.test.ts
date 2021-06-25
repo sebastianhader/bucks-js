@@ -41,4 +41,6 @@ test('$.array.findIndex()', () => {
     expect(friendIndex2).toBe(2)
     const friendIndexUndefined = $.array.findIndex(TEST_ARRAY, (f: any) => { return f.lastName === 'Holman' })
     expect(friendIndexUndefined).toBe(undefined)
+    const friendIndex4 = $.array.findIndex(TEST_ARRAY, (f: any) => { return f.firstName === 'Ursula' })
+    expect(friendIndex4).toBe(4)
 })
