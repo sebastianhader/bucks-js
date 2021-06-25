@@ -1,12 +1,6 @@
 import $ from '../src/index'
 
 
-// ARRAY
-test('Array.is()', () => {
-    expect($.array.is([])).toBe(true)
-})
-
-
 // STRING
 test('string.isNumeric()', () => {
     expect($.string.isNumeric('a47')).toBe(false)

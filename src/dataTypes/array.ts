@@ -92,18 +92,34 @@
 
 
     /**
-     * Finds first item in for defined predicate condition.
+     * Finds item in array for defined predicate.
      * @param array
      * @param predicate
      * @return {*}
      */
-    export const find = (array: any[], predicate: never): never|undefined => {
+    export const find = (array: any[], predicate: any): any|undefined => {
         let result = array.filter(predicate)
         if (arrayType.empty(result) === false) {
             return result[0]
         } else {
             return undefined
         }
+    }
+
+
+    /**
+     * Finds item index in array for defined predicate.
+     * @param array
+     * @param predicate
+     * @return {*}
+     */
+    export const findIndex = (array: any[], predicate: any): number|undefined => {
+        for (let i = 0; i < array.length; i++) {
+            if (predicate(array[i])) {
+                return i
+            }
+        }
+        return undefined
     }
 
 
