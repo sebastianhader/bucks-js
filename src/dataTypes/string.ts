@@ -43,7 +43,17 @@
 
 
     /**
-     * Checks if value is valid phone.
+     * Checks if value is valid url.
+     * @param url
+     * @return {boolean}
+     */
+    export const isImageUrl = (url: string): boolean => {
+        return (url.match(/\.(jpeg|jpg|gif|png)$/) != null)
+    }
+
+
+    /**
+     * Checks if value is valid phone number.
      * @param value
      * @return {boolean}
      */
