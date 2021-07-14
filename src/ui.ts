@@ -55,9 +55,13 @@
     /**
      * Opens file (pdf) via object url and window.
      * @param file
-     * @param target
+     * @param fileName
      */
-    export const openFile = (file: any, target = '_self') => {
-        const url = window.URL.createObjectURL(file)
-        window.open(url, target)
+    export const openFile = (file: any, fileName: string) => {
+        const fileBlob = new Blob([file], { type: 'application/pdf' })
+        let url = URL.createObjectURL(fileBlob)
+        let a = document.createElement('a')
+        a.setAttribute('href', url)
+        a.setAttribute('download', fileName)
+        a.click()
     }
