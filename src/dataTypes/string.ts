@@ -1,3 +1,4 @@
+    import stringType = require('./string')
 
     /**
      * Checks if value is string.
@@ -48,7 +49,11 @@
      * @return {boolean}
      */
     export const isImageUrl = (url: string): boolean => {
-        return (url.match(/\.(jpeg|jpg|gif|png)$/) != null)
+        if (stringType.is(url)) {
+            return (url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null)
+        } else {
+            return false
+        }
     }
 
 
