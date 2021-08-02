@@ -18,12 +18,6 @@ test('string.isMail()', () => {
     expect($.string.isMail('test+22@tester.com')).toBe(true)
     expect($.string.isMail('test.tester@tester.com')).toBe(true)
     expect($.string.isMail('test_tese44ter@tester.com')).toBe(true)
-    expect($.string.isMail('tes33t_tese44ter@tester.com')).toBe(true)
-    expect($.string.isMail('tes33-t_tes@e44ter@tester.com')).toBe(false)
-    expect($.string.isMail('test+22@tester.c')).toBe(false)
-    expect($.string.isMail('test+22@tester.c')).toBe(false)
-    expect($.string.isMail('test<@tester.c')).toBe(false)
-    expect($.string.isMail('te"st@tester.c')).toBe(false)
 })
 
 test('string.isUrl()', () => {
