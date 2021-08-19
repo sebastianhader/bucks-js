@@ -56,9 +56,10 @@
      * Opens file (pdf) via object url and window.
      * @param file
      * @param fileName
+     * @param fileType
      */
-    export const openFile = (file: any, fileName: string) => {
-        const fileBlob = new Blob([file], { type: 'application/pdf' })
+    export const openFile = (file: any, fileName: string, fileType: string) => {
+        const fileBlob = new Blob([file], { type: fileType })
         let url = URL.createObjectURL(fileBlob)
         let a = document.createElement('a')
         a.setAttribute('href', url)
