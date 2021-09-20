@@ -1,7 +1,6 @@
 import $ from '../src/index'
 
 // STRING
-
 const NON_TEXT: any = null
 const TEXT = 'Hello world'
 const URL = 'https://google.com'
@@ -36,9 +35,25 @@ test('string.isNumeric()', () => {
     expect($.string.isNumeric('47')).toBe(true)
 })
 
-test('string.camelize()', () => {
-    expect($.string.camelize('Created At')).toBe('createdAt')
-    expect($.string.camelize('Created   At')).toBe('createdAt')
+test('string.spaceCaseToCamelCase()', () => {
+    expect($.string.spaceCaseToCamelCase('Created At')).toBe('createdAt')
+    expect($.string.spaceCaseToCamelCase('Created   At')).toBe('createdAt')
+    expect($.string.spaceCaseToCamelCase('Created    At')).toBe('createdAt')
+})
+
+test('string.camelCaseToSpaceCase()', () => {
+    expect($.string.camelCaseToSpaceCase('createdAt')).toBe('Created At')
+    expect($.string.camelCaseToSpaceCase('CreatedAt')).toBe('Created At')
+})
+
+test('string.snakeCaseToSpaceCase()', () => {
+    expect($.string.snakeCaseToSpaceCase('created_at')).toBe('Created At')
+    expect($.string.snakeCaseToSpaceCase('Created_At')).toBe('Created At')
+})
+
+test('string.snakeCaseToCamelCase()', () => {
+    expect($.string.snakeCaseToCamelCase('created_at')).toBe('createdAt')
+    expect($.string.snakeCaseToCamelCase('Created_At')).toBe('createdAt')
 })
 
 

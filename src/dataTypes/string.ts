@@ -84,8 +84,7 @@
 
 
     /**
-     * Converts a camel case string to a string with spaces
-     * and uppercase starting letters.
+     * Converts a camelCase string to Space Case.
      * @param word
      * @returns string
      */
@@ -93,12 +92,12 @@
         return word.replace(/([A-Z])/g, ' $1')
             .replace(/^./, function(str) {
                 return str.toUpperCase()
-            })
+            }).trim()
     }
 
 
     /**
-     * Converts a camel case string to a string with dashes.
+     * Converts a camelCase string to dash-case.
      * @param word
      * @returns string
      */
@@ -109,22 +108,33 @@
 
 
     /**
-     * Converts a camel case string to a string with dashes.
+     * Converts snake_case to Space Case.
      * @param word
-     * @param upper
-     * @returns string
      */
-    export const spaceCaseToCamelCase = (word: string, upper : boolean = false): string => {
-        let newWord = word.toLowerCase().replace(/\-[a-zA-Z]/g, m => m.slice(1).toUpperCase())
-        return upper ? newWord.replace(/^\w/, c => c.toUpperCase()) : newWord
+    export const snakeCaseToSpaceCase = (word: string): string => {
+        const sentence = word.toLowerCase().split('_')
+        for (let i = 0; i < sentence.length; i++) {
+            sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1)
+        }
+        return sentence.join(' ')
     }
 
 
     /**
-     * Puts normal string into camel case.
+     * Converts snake_case to camelCase.
+     * @param word
+     */
+    export const snakeCaseToCamelCase = (word: string): string => {
+        const upperCamelCase = word.replace(/([-_]\w)/g, g => g[1].toUpperCase())
+        return upperCamelCase.charAt(0).toLowerCase() + upperCamelCase.slice(1)
+    }
+
+
+    /**
+     * Puts Space Case string into a camelCase string.
      * @param str
      */
-    export const camelize = (str: string): string => {
+    export const spaceCaseToCamelCase = (str: string): string => {
         return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
             if (+match === 0) return "" // or if (/\s+/.test(match)) for white spaces
             return index === 0 ? match.toLowerCase() : match.toUpperCase()
