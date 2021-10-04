@@ -71,11 +71,12 @@
     /**
      * Generates a random string.
      * @param length
+     * @param numbers
      * @returns string
      */
-    export const random = (length: number = 10): string => {
+    export const random = (length: number = 10, numbers: boolean = true): string => {
         let text = ''
-        let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        let possible = (numbers === true) ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
         for (let i = 0; i < length; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length))
         }
