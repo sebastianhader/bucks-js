@@ -160,7 +160,7 @@
      * @param reverse
      * @param primer
      */
-    const sort = (field: string, reverse: boolean = false, primer: any = null) => {
+    export const sort = (field: string, reverse: boolean = false, primer: any = null) => {
         const key = primer ? function (x: {[key:string]: any}) { return primer(x[field]) } : function (x: {[key:string]: any}) { return x[field] }
         const reverseOrder = !reverse ? 1 : -1
         return function (a: any, b: any) {
