@@ -152,3 +152,19 @@
         let index = array.findIndex(predicate)
         if (index > -1) array.splice(index, 1)
     }
+
+
+    /**
+     * Sort callback function for array sort function with possibility for reverse order and primer.
+     * @param field
+     * @param reverse
+     * @param primer
+     */
+    const sort = (field: string, reverse: boolean = false, primer: any = null) => {
+        const key = primer ? function (x: {[key:string]: any}) { return primer(x[field]) } : function (x: {[key:string]: any}) { return x[field] }
+        const reverseOrder = !reverse ? 1 : -1
+        return function (a: any, b: any) {
+            // @ts-ignore
+            return a = key(a), b = key(b), reverseOrder * ((a > b) - (b > a))
+        }
+    }
