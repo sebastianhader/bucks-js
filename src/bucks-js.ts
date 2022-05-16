@@ -58,8 +58,8 @@
      */
     export const debounce = (func: any, wait: number, immediate?: any) => {
         let timeout: any
-        return function () {
-            let context = this, args = arguments
+        return function (...args: any[]) {
+            let context = this
             let later = function () {
                 timeout = null
                 if (!immediate) func.apply(context, args)
