@@ -44,6 +44,28 @@
 
 
     /**
+     * Calculates the intersection of arrays.
+     * For [1,2,3] [2,3] it will yield [2,3].
+     * @param array1
+     * @param array2
+     */
+    export const intersection = (array1: any[], array2: any[]): any[] => {
+        return array1.filter((x: any) => array2.includes(x))
+    }
+
+
+    /**
+     * Calculates the difference of arrays.
+     * For [1,2,3] [2,3] it will yield [1].
+     * @param array1
+     * @param array2
+     */
+    export const difference = (array1: any[], array2: any[]): any[] => {
+        return array1.filter((x: any) => !array2.includes(x))
+    }
+
+
+    /**
      * Flat two dimensional array to one array.
      * @TODO Add depth function.
      * @param array

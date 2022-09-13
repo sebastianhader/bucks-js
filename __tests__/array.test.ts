@@ -44,3 +44,19 @@ test('$.array.findIndex()', () => {
     const friendIndex4 = $.array.findIndex(TEST_ARRAY, (f: any) => { return f.firstName === 'Ursula' })
     expect(friendIndex4).toBe(4)
 })
+
+
+test('$.array.intersection()', () => {
+    const intersection1 = $.array.intersection([1, 2, 3], [2, 3])
+    expect(intersection1).toStrictEqual([2, 3])
+})
+
+
+test('$.array.difference()', () => {
+    const difference1 = $.array.difference([1, 2, 3], [2, 3])
+    expect(difference1).toStrictEqual([1])
+    const difference2 = $.array.difference([1, 2, 3], [2, 3, 5])
+    expect(difference2).toStrictEqual([1])
+    const difference3 = $.array.difference([2, 3, 5], [1, 2, 3])
+    expect(difference3).toStrictEqual([5])
+})

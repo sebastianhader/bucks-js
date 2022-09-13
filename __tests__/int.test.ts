@@ -4,6 +4,6 @@ import $ from '../src/index'
 
 test('$.int.random()', () => {
     for (let i = 0; i < 20; i++) {
-        console.log($.int.random(1, 3))
+        // console.log($.int.random(1, 3))
     }
 })
