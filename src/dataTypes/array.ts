@@ -86,15 +86,13 @@
     /**
      * Chunks array in multiple parts.
      * @param array
-     * @param length
+     * @param size
      * @return {*|{}}
      */
-    export const chunk = (array: any[], length: number): any[] => {
-        let list = JSON.parse(JSON.stringify(array))
-        let chunks = []
-        while (list.length > 0) {
-            let chunk = list.slice(0, length)
-            list.splice(0, length)
+    export const chunk = (array: any[], size: number): any[] => {
+        const chunks = []
+        for (let i = 0; i < array.length; i += size) {
+            const chunk = array.slice(i, i + size);
             chunks.push(chunk)
         }
         return chunks
